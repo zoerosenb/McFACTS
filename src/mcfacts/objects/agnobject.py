@@ -23,11 +23,15 @@ attr_merged_star = ["id_num", "galaxy", "orb_a_final", "mass_final", "gen_final"
                     "mass_1", "mass_2",
                     "gen_1", "gen_2",
                     "log_radius_final", "orb_ecc",
-                    "time_merged"]
+                    "time_merged",
+                    "orb_a_1", "orb_a_2",
+                    "orb_inc_1", "orb_inc_2",
+                    "orb_ecc_1", "orb_ecc_2",
+                    "log_radius_1", "log_radius_2"]
 
 attr_disrupted_star = ["galaxy", "id_num_star", "id_num_bh", "orb_a_star", "orb_a_bh",
-                      "mass_star", "mass_bh", "gen_star", "gen_bh", "orb_inc_star", "orb_inc_bh",
-                      "orb_ecc_star", "orb_ecc_bh", "star_log_radius", "time_sn"]
+                       "mass_star", "mass_bh", "gen_star", "gen_bh", "orb_inc_star", "orb_inc_bh",
+                       "orb_ecc_star", "orb_ecc_bh", "star_log_radius", "time_sn"]
 
 attr_immortal_star = ["id_num", "orb_a", "orb_a_initial", "mass", "mass_initial",
                       "orb_inc", "orb_ecc", "orb_arg_periapse", "orb_ang_mom",
@@ -1523,7 +1527,15 @@ class AGNMergedStar(AGNObject):
                  log_radius_final=empty_arr,
                  orb_ecc=empty_arr,
                  time_merged=empty_arr,
-                 num_obj_merge=0):
+                 num_obj_merge=0,
+                 orb_a_1=empty_arr,
+                 orb_a_2=empty_arr,
+                 orb_inc_1=empty_arr,
+                 orb_inc_2=empty_arr,
+                 log_radius_1=empty_arr,
+                 log_radius_2=empty_arr,
+                 orb_ecc_1=empty_arr,
+                 orb_ecc_2=empty_arr):
         """Creates an instance of AGNMergedBlackHole.
 
         Parameters
@@ -1552,6 +1564,22 @@ class AGNMergedStar(AGNObject):
             the timestep of merger
         num_obj_merge : int
             number of objects
+        orb_a_1 : numpy array
+            orbital semi-major axis of the first component prior to merger wrt SMBH in R_g
+        orb_a_2 : numpy array
+            orbital semi-major axis of the second component prior to merger wrt SMBH in R_g
+        orb_inc_1 : numpy array
+            orbital inclination of the first component prior to merger
+        orb_inc_2 : numpy array
+            orbital inclination of the second component prior to merger
+        log_radius_1: numpy array
+            log radius [Rsun] of the first component prior to merger
+        log_radius_2: numpy array
+            log radius [Rsun] of the second component prior to merger
+        orb_ecc_1 : numpy array
+            orbital eccentricity of the first component prior to merger wrt SMBH
+        orb_ecc2 : numpy array
+            orbital eccentricity of the second component prior to merger wrt SMBH
         """
 
         if (num_obj_merge == 0):
@@ -1569,6 +1597,14 @@ class AGNMergedStar(AGNObject):
         self.log_radius_final = log_radius_final
         self.orb_ecc = orb_ecc
         self.time_merged = time_merged
+        self.orb_a_1 = orb_a_1
+        self.orb_a_2 = orb_a_2
+        self.orb_inc_1 = orb_inc_1
+        self.orb_inc_2 = orb_inc_2
+        self.log_radius_1 = log_radius_1
+        self.log_radius_2 = log_radius_2
+        self.orb_ecc_1 = orb_ecc_1
+        self.orb_ecc_2 = orb_ecc_2
 
         self.num = num_obj_merge
 
@@ -1579,7 +1615,11 @@ class AGNMergedStar(AGNObject):
                   new_mass_1=empty_arr, new_mass_2=empty_arr,
                   new_gen_1=empty_arr, new_gen_2=empty_arr,
                   new_log_radius_final=empty_arr, new_orb_ecc=empty_arr,
-                  new_time_merged=empty_arr, num_obj_merge=0):
+                  new_time_merged=empty_arr, num_obj_merge=0, 
+                  new_orb_a_1=empty_arr, new_orb_a_2=empty_arr,
+                  new_orb_inc_1=empty_arr, new_orb_inc_2=empty_arr,
+                  new_log_radius_1=empty_arr, new_log_radius_2=empty_arr,
+                  new_orb_ecc_1=empty_arr, new_orb_ecc_2=empty_arr):
         """
         Add stars to the AGNMergedStar object
 
@@ -1609,6 +1649,22 @@ class AGNMergedStar(AGNObject):
             the timestep of merger
         num_obj_merge : int
             number of objects to be added
+        new_orb_a_1 : numpy array
+            orbital semi-major axis of the first component prior to merger wrt SMBH in R_g
+        new_orb_a_2 : numpy array
+            orbital semi-major axis of the second component prior to merger wrt SMBH in R_g
+        new_orb_inc_1 : numpy array
+            orbital inclination of the first component prior to merger
+        new_orb_inc_2 : numpy array
+            orbital inclination of the second component prior to merger
+        new_log_radius_1: numpy array
+            log radius [Rsun] of the first component prior to merger
+        new_log_radius_2: numpy array
+            log radius [Rsun] of the second component prior to merger
+        new_orb_ecc_1 : numpy array
+            orbital eccentricity of the first component prior to merger wrt SMBH
+        new_orb_ecc2 : numpy array
+            orbital eccentricity of the second component prior to merger wrt SMBH
         """
 
         self.id_num = np.concatenate([self.id_num, new_id_num])
@@ -1623,6 +1679,14 @@ class AGNMergedStar(AGNObject):
         self.log_radius_final = np.concatenate([self.log_radius_final, new_log_radius_final])
         self.orb_ecc = np.concatenate([self.orb_ecc, new_orb_ecc])
         self.time_merged = np.concatenate([self.time_merged, new_time_merged])
+        self.orb_a_1 = np.concatenate([self.orb_a_1, new_orb_a_1])
+        self.orb_a_2 = np.concatenate([self.orb_a_2, new_orb_a_2])
+        self.orb_inc_1 = np.concatenate([self.orb_inc_1, new_orb_inc_1])
+        self.orb_inc_2 = np.concatenate([self.orb_inc_2, new_orb_inc_2])
+        self.log_radius_1 = np.concatenate([self.log_radius_1, new_log_radius_1])
+        self.log_radius_2 = np.concatenate([self.log_radius_2, new_log_radius_2])
+        self.orb_ecc_1 = np.concatenate([self.orb_ecc_1, new_orb_ecc_1])
+        self.orb_ecc_2 = np.concatenate([self.orb_ecc_2, new_orb_ecc_2])
 
         if (num_obj_merge == 0):
             num_obj_merge = new_mass_final.shape[0]

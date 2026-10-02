@@ -42,13 +42,11 @@ stars_cols = [
     "galaxy", "time_passed", "orb_a", "mass", "orb_ecc", "log_radius", 
     "gen", "id_num", "log_teff", "log_luminosity", "star_X", "star_Y", "star_Z",
 ]
-
 stars_immortal_cols = [
     "galaxy", "time_passed", "orb_a", "mass", "orb_ecc", "log_radius", 
     "gen", "id_num", "log_teff", "log_luminosity", "star_X", "star_Y", "star_Z",
     "mass_initial", "orb_a_initial"
 ]
-
 stars_disrupted_cols = [
     "galaxy", "time_sn", "orb_a_star", "mass_star", "orb_ecc_star",
     "star_log_radius", "gen_star", "id_num_star", "orb_inc_star",
@@ -59,7 +57,8 @@ tde_cols = [
     "gen", "id_num", "log_teff", "log_luminosity", "star_X", "star_Y", "star_Z",
 ]
 stars_merged_cols = [
-    "galaxy", "time_merged","orb_a_final", "mass_final", "orb_ecc", 
+    "galaxy", "time_merged", "orb_a_final", "mass_final", "orb_ecc",
     "log_radius_final", "gen_final", "id_num", "mass_1", "mass_2",
-    "gen_1", "gen_2"
+    "gen_1", "gen_2", "orb_a_1", "orb_a_2", "orb_inc_1", "orb_inc_2",
+    "orb_ecc_1", "orb_ecc_2", "log_radius_1", "log_radius_2"
 ]

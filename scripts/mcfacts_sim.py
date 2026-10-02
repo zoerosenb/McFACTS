@@ -1220,17 +1220,25 @@ def main():
 
                     # Add new merged stars to merged stars object
                     stars_merged.add_stars(new_id_num=star_merged_id_num_new,
-                                          new_galaxy=stars_pro.at_id_num(star_touch_id_nums[0], "galaxy"),
-                                          new_orb_a_final=star_merged_orbs_a,
-                                          new_gen_final=star_merged_gen,
-                                          new_mass_final=star_merged_mass,
-                                          new_mass_1=stars_pro.at_id_num(star_touch_id_nums[0], "mass"),
-                                          new_mass_2=stars_pro.at_id_num(star_touch_id_nums[1], "mass"),
-                                          new_gen_1=stars_pro.at_id_num(star_touch_id_nums[0], "gen"),
-                                          new_gen_2=stars_pro.at_id_num(star_touch_id_nums[1], "gen"),
-                                          new_log_radius_final=star_merged_logR,
-                                          new_orb_ecc=np.full(star_touch_id_nums.shape[1], opts.disk_bh_pro_orb_ecc_crit),
-                                          new_time_merged=np.full(star_touch_id_nums.shape[1], time_passed))
+                                           new_galaxy=stars_pro.at_id_num(star_touch_id_nums[0], "galaxy"),
+                                           new_orb_a_final=star_merged_orbs_a,
+                                           new_gen_final=star_merged_gen,
+                                           new_mass_final=star_merged_mass,
+                                           new_mass_1=stars_pro.at_id_num(star_touch_id_nums[0], "mass"),
+                                           new_mass_2=stars_pro.at_id_num(star_touch_id_nums[1], "mass"),
+                                           new_gen_1=stars_pro.at_id_num(star_touch_id_nums[0], "gen"),
+                                           new_gen_2=stars_pro.at_id_num(star_touch_id_nums[1], "gen"),
+                                           new_log_radius_final=star_merged_logR,
+                                           new_orb_ecc=np.full(star_touch_id_nums.shape[1], opts.disk_bh_pro_orb_ecc_crit),
+                                           new_time_merged=np.full(star_touch_id_nums.shape[1], time_passed),
+                                           new_orb_a_1=stars_pro.at_id_num(star_touch_id_nums[0], "orb_a"),
+                                           new_orb_a_2=stars_pro.at_id_num(star_touch_id_nums[1], "orb_a"),
+                                           new_orb_inc_1=stars_pro.at_id_num(star_touch_id_nums[0], "orb_inc"),
+                                           new_orb_inc_2=stars_pro.at_id_num(star_touch_id_nums[1], "orb_inc"),
+                                           new_log_radius_1=stars_pro.at_id_num(star_touch_id_nums[0], "log_radius"),
+                                           new_log_radius_2=stars_pro.at_id_num(star_touch_id_nums[1], "log_radius"),
+                                           new_orb_ecc_1=stars_pro.at_id_num(star_touch_id_nums[0], "orb_ecc"),
+                                           new_orb_ecc_2=stars_pro.at_id_num(star_touch_id_nums[1], "orb_ecc"))
 
                     # Add new merged stars to filing cabinet and delete previous stars
                     filing_cabinet.add_objects(new_id_num=star_merged_id_num_new,
@@ -2700,17 +2708,25 @@ def main():
 
                     # Add new merged stars to merged stars object
                     stars_merged.add_stars(new_id_num=star_merged_id_num_new,
-                                          new_galaxy=stars_pro.at_id_num(starstar_id_nums[0], "galaxy"),
-                                          new_orb_a_final=star_merged_orbs_a,
-                                          new_gen_final=star_merged_gen,
-                                          new_mass_final=star_merged_mass,
-                                          new_mass_1=stars_pro.at_id_num(starstar_id_nums[0], "mass"),
-                                          new_mass_2=stars_pro.at_id_num(starstar_id_nums[1], "mass"),
-                                          new_gen_1=stars_pro.at_id_num(starstar_id_nums[0], "gen"),
-                                          new_gen_2=stars_pro.at_id_num(starstar_id_nums[1], "gen"),
-                                          new_log_radius_final=star_merged_logR,
-                                          new_orb_ecc=np.full(starstar_id_nums.shape[1], opts.disk_bh_pro_orb_ecc_crit),
-                                          new_time_merged=np.full(starstar_id_nums.shape[1], time_passed))
+                                           new_galaxy=stars_pro.at_id_num(starstar_id_nums[0], "galaxy"),
+                                           new_orb_a_final=star_merged_orbs_a,
+                                           new_gen_final=star_merged_gen,
+                                           new_mass_final=star_merged_mass,
+                                           new_mass_1=stars_pro.at_id_num(starstar_id_nums[0], "mass"),
+                                           new_mass_2=stars_pro.at_id_num(starstar_id_nums[1], "mass"),
+                                           new_gen_1=stars_pro.at_id_num(starstar_id_nums[0], "gen"),
+                                           new_gen_2=stars_pro.at_id_num(starstar_id_nums[1], "gen"),
+                                           new_log_radius_final=star_merged_logR,
+                                           new_orb_ecc=np.full(starstar_id_nums.shape[1], opts.disk_bh_pro_orb_ecc_crit),
+                                           new_time_merged=np.full(starstar_id_nums.shape[1], time_passed),
+                                           new_orb_a_1=stars_pro.at_id_num(starstar_id_nums[0], "orb_a"),
+                                           new_orb_a_2=stars_pro.at_id_num(starstar_id_nums[1], "orb_a"),
+                                           new_orb_inc_1=stars_pro.at_id_num(starstar_id_nums[0], "orb_inc"),
+                                           new_orb_inc_2=stars_pro.at_id_num(starstar_id_nums[1], "orb_inc"),
+                                           new_log_radius_1=stars_pro.at_id_num(starstar_id_nums[0], "log_radius"),
+                                           new_log_radius_2=stars_pro.at_id_num(starstar_id_nums[1], "log_radius"),
+                                           new_orb_ecc_1=stars_pro.at_id_num(starstar_id_nums[0], "orb_ecc"),
+                                           new_orb_ecc_2=stars_pro.at_id_num(starstar_id_nums[1], "orb_ecc"))
 
                     # Add new merged stars to filing cabinet and delete previous stars
                     filing_cabinet.add_objects(new_id_num=star_merged_id_num_new,

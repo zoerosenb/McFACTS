@@ -83,9 +83,9 @@ def main():
     # Load data from output files
     opts = arg()
 
-    mergers = np.loadtxt(opts.fname_mergers, skiprows=2)
-    emris = np.loadtxt(opts.fname_emris, skiprows=2)
-    lvk = np.loadtxt(opts.fname_lvk, skiprows=2)
+    mergers = np.loadtxt(opts.fname_mergers, skiprows=1) # ZOE MAKE SURE THE EDIT IS OK (changed from 2 to 1 skiprows)
+    emris = np.loadtxt(opts.fname_emris, skiprows=1)     # ^^
+    lvk = np.loadtxt(opts.fname_lvk, skiprows=1)         # ^^
 
     # Exclude all rows with NaNs or zeros in the final mass column
     merger_nan_mask = (np.isfinite(mergers[:, 2])) & (mergers[:, 2] != 0)
